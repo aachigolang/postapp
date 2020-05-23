@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package pb:
+
+service Post {
+    rpc CreatePost (CreatePostRequest) returns (CreatePostReply) {}
+}
+
+message CreatePostRequest {
+    Post post =1;
+}
+
+message CreatePostReply {
+    Post post =1;
+    string err =2;
+}
+
+message Post {
+    string id =1;
+    string title=4;
+    string content =3;
+    repeated Tags tags =4;
+}
+
+message Tag {
+    string id =1;
+    string name =2;
+}
